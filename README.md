@@ -46,4 +46,4 @@ For this or future projects, we could probably use GridSampling insetead or Rand
 
 ## Proof of cluster clean up
 The snapshot is attached below:
-![picture]('https://github.com/vanshika-medi/Nanodegree-Project---1/blob/main/compute_target_delete.png')
+![](cluster_target_delete.png)
