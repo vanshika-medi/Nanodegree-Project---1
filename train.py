@@ -14,13 +14,13 @@ from azureml.data.dataset_factory import TabularDatasetFactory
 # Data is located at:
 # "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
 ### YOUR CODE HERE ###
-url = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
-ds = TabularDatasetFactory.from_delimited_files(path = url, validate = True, separator = ",", encoding = 'utf8')
+url = ["https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"]
+ds = TabularDatasetFactory.from_delimited_files(path = url)
 
 
 # TODO: Split data into train and test sets.
 
-### YOUR CODE HERE ###a
+# ## YOUR CODE HERE ###a
 
 
 
@@ -50,7 +50,7 @@ def clean_data(data):
 
     y_df = x_df.pop("y").apply(lambda s: 1 if s == "yes" else 0)
     return x_df, y_df
-    
+
 
 def main():
     run = Run.get_context()
@@ -72,7 +72,12 @@ def main():
     model = LogisticRegression(C=args.C, max_iter=args.max_iter).fit(x_train, y_train)
 
     accuracy = model.score(x_test, y_test)
+    os.makedirs('outputs', exist_ok = True)
+    joblib.dump(model, 'outputs/udacity-project-output.joblib')
     run.log("Accuracy", np.float(accuracy))
+    
 
 if __name__ == '__main__':
     main()
+
+
