@@ -75,7 +75,7 @@ def main():
     os.makedirs('outputs', exist_ok = True)
     joblib.dump(model, 'outputs/udacity-project-output.joblib')
     run.log("Accuracy", np.float(accuracy))
-    
+
 
 if __name__ == '__main__':
     main()
