@@ -12,22 +12,22 @@ We initially define a Logistic Regression model and then tuned the hyperparamete
 
 ## Scikit-learn Pipeline
 
-#Architecture
+##Architecture
 We apply a list of tuning parameters or transforms and then a final estimator. The purpose of the pipeline is to assemble several steps that can be cross-validated together while setting different parameters
 
-#Data
+##Data
 We initially retrieve the dataset usig TabularDatasetFactory. Cleaning the data is a very important step hence we define a function clean_data(ds). Where ds is the the dataset being passed. We then apply OneHot Encoding, inary classification, Logistic Regression to train the data.
 
-#Hyperparameter Tuning
+##Hyperparameter Tuning
 A SKLearn estimator which is used for training in Scikit-learn experiments is used here and it takes training scripts and performs the training on the compute. This estimator will later be passed to the HyperDrive Config script. Then a HyperDrive Config is created using the estimator, parameter sampler and a policy and the HyperDrive run is executed in the experiment. Then a HyperDrive Config is created using the estimator, parameter sampler and a policy and the HyperDrive run is executed in the experiment.
 The hyperparameters which are needed to be tuned are defined in the parameter sampler. The hyperparameters that can be tuned here are C and max_iter. C is the inverse regularization parameter and max_iter is the maximum number of iterations. 
 The train.py script contains all the steps needed to train and test the model which are data retrieval, data cleaning and pre-processing, data splitting into train and test data, defining the scikit-learn model and training the model on train data and predicting it on the test data to get the accuracy and then saving the model. Finally ,the best run of the hyperdrive is noted and the best model in the best run is saved.
 
-#Benefits of Parameter Sampler
+##Benefits of Parameter Sampler
 The parameter sampler is used to provide different choices of hyperparameters to choose from and try during hyperparameter tuning using hyperdrive.
 For this project, we use RandomParameterSampling 
 
-#Benefits of Early Stopping Policy
+##Benefits of Early Stopping Policy
 Early Stopping policy in HyperDriveConfig and it is useful in stopping the HyperDrive run if the accuracy of the model is not improving from the best accuracy by a certain defined amount after every given number of iterations. We use Bandit Policy in this project. It saves a lot of computational resources.
 
 ## AutoML
