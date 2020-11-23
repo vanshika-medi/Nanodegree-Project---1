@@ -45,5 +45,4 @@ AutoML has a slighty better accuracy score then HyperDrive. This difference migh
 For this or future projects, we could probably use GridSampling insetead or Random Sampling as it is much more exhaustive and would give better results.
 
 ## Proof of cluster clean up
-The snapshot is attached below:
-![](cluster_target_delete.png)
+The snapshot is added to the repository.
